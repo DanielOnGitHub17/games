@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TAPMO</title>
+<style>
+body{
+    overflow: hidden; margin: 0;
+}
+#you, #time{
+    border: 1px solid black; width: 25px; height: 25px; position: absolute; top: 30%; background: green; text-align: center; border-radius: 25px;
+}
+#control{
+     width: 3em; height: 3em; position: absolute; top: 300px; left: 500px; background: gray; border-radius: 10px; box-shadow: 0 10px 10px black; cursor: pointer;
+}
+#time{width: 40px; height: 50px; top: 0%; left: 50%; background: pink;}
+#control:active{ 
+        top: 305px;
+        box-shadow: 0 2px 5px black;
+}
+</style>
+</head>
+<body>
+<div id="you"></div>
+<div id="control"></div>
+<div id="time"></div>
+<script>
+function reset(msg='Are you ready to start'){
+	removeEventListener('mousemove', tim)
+	alert(msg)
+    control = document.getElementById("control");
+    yo = document.getElementById("you")
+    yo.style.left = '';
+    timer = document.getElementById("time")
+    yont = 0;
+    time = new Date();
+    control.addEventListener("click", e);
+    document.addEventListener("mousemove", tim);
+}
+function tim(){
+	sec = new Date();
+	sec -= time;
+	sec /= 1000;
+	ti = Math.round(15-sec);
+	if(ti>=0) {(timer.innerHTML = ti)} else {
+    	reset('you lose.\nclick ok to restart');
+	    return;
+	}
+}
+function e(){
+    you = yo.style.left = (yont + '%');
+    yont = parseInt(you);
+    yont += 1;
+    if (yont>99){
+    	if (sec<15){
+    		reset('You win.\nclick ok to restart');
+    		return
+    	}
+    }
+}
+reset()
+</script>
+</body>
+</html>

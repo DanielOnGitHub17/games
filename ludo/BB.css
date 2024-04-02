@@ -1,0 +1,136 @@
+body{
+    margin: 0; overflow: hidden;
+    background: black; font-family: fantasy
+}
+/*general*/
+input{
+    outline: none; border-color: #5be0f4;
+    background: #0d63ad; color: aliceblue;
+    cursor: pointer;
+}
+input::active, button::hover, button::active{
+    box-shadow: none; outline: none;
+}
+body > div{
+    position: relative;
+    width: fit-content;
+    margin-top: 1%;
+}
+body>div>div{
+    position: relative;
+    margin-top: 1%;
+    box-sizing: border-box
+}
+body input, body button{
+     width: 50px; height: 50px;
+}
+/*for menus*/
+.menu{
+    width: 300px; height: 400px;
+    background: #0a323d; border: 2px solid #acf2eb;
+    top: 70; left: calc(50% - 150px);
+    box-sizing: border-box; padding: 70px 0px 0px 45px;
+}
+body button{
+    display: block; width: fit-content; height: 30px;
+    background: #5959ff; border: 5px outset aliceblue;
+    border-radius: 0; margin: 2px; cursor: pointer;
+    color: white;
+    font-size: larger; font-family: fantasy;
+    padding: 0;
+}
+.menu>button{
+    width: 200px; height: 30px;
+}
+.menu h2{
+    color: white;
+    margin: 0;
+    text-align: center;
+    width: 200px;
+    letter-spacing: 3px;
+    -webkit-text-emphasis-style: open;
+    animation: swing .3s linear infinite alternate;
+    transform: translateY(0px);
+}
+@-webkit-keyframes swing{
+    0% {transform: translateY(-5px)};
+}
+button:hover, button:active{
+    outline: none;
+    background: gold;
+    color: yellow;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: .5px;
+}
+button:focus{outline: none}
+button:active{
+    border-style: inset;
+    color: white;
+}
+#toggler{
+    position: absolute;
+    top: 1%;
+    z-index: 100;
+}
+/*for (main game)*/
+#GAME{
+    height: 100%; width: 100%; margin: 0;
+}
+#GAME > div{
+    width: 470px;
+    left: calc(50% - 225px);
+}
+#HUD{
+    height: 50px; position: relative;
+    margin: 0; background: #54fae5;
+}
+#site{
+    height: 82%;
+    background: #0d63ad;
+    border: 10px solid #5be0f4;
+    position: relative;
+    margin-top: 0;
+}
+#player{
+    height: fit-content; display: flex;
+    border: 1px solid #5be0f4;
+}
+#player > *{
+    position: relative; margin: 0;
+}
+#player>button{
+    height: 50px; top:0;
+}
+#player input{
+    box-sizing: border-box;
+    border: 5px outset;
+}
+#player input:active{
+    border-style: inset;
+}
+#controls input:hover{
+    border-style: inset;
+}
+#controls{
+    position: relative;
+    left: 160px
+}
+#controls input{
+    position: relative;
+}
+#left{
+    right: 50px;
+}
+#weapons{
+    left: 50px;
+}
+#shields{
+    background: url('images/1.png')
+}
+#bullets{
+    background: url(images/0.png);
+    background-size: contain;
+}
+#quakes{
+    background: url(images/2.png)
+}

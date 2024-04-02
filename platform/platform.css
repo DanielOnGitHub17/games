@@ -1,0 +1,145 @@
+body{ margin: 50px; background: #616161}
+
+#world{
+    position: relative; top: 200px; left: 10%
+}
+.human, .block{
+    position: absolute
+}
+/*a game human*/
+
+.human{
+    width: 100px;
+    width: fit-content;
+    top: -110px; left: 20px; transition-duration: .5s;
+    /*transform: rotateY(30deg)*/
+    transform: scale(.7); z-index: 1;
+}
+.human div{
+    transition: inherit; position: relative;
+    background: #000000bd;
+    border: 1px solid white; border-radius: 2em;
+}
+.head{
+    width: 40px; height: 45px;
+    z-index: 1;
+}
+.head::before, .head::after{
+    content: '';
+    border-radius: 1em; position: absolute;
+    background: #ffffff75;; width: 8px;
+    height: 8px; top: 10px; left: 10px;
+}
+.head:after{
+    left: 25px
+}
+.human .back{
+    width: 23px; height: 80px; top: -6px; left: 8px;
+    border-top-left-radius: 0; border-top-right-radius: 0;
+}
+.back, .head{
+    transform: rotateY(25deg)
+}
+/*hands*/
+.hand{
+    top: -72px; left: 23px; z-index: -1;
+}
+/*hand transforms*/
+.hand.right{
+    left: -33px;
+    transform-origin: 111% 490%;
+    transform: rotate(-5deg)
+}
+.hand.left{
+    transform-origin: left 500%;
+    transform: rotate(-30deg)
+}
+.hand div{
+    width: 30px; height: 16px;
+}
+/*handy bones*/
+.left .ulnoradius{
+    left: 20px; z-index: -1;
+    transform-origin: left;
+    transform: rotate(-25deg)
+}
+.right .humerus{
+    left: 20px
+}
+/*handy bones*/
+.hand div, .leg div{
+    position: absolute;
+}
+.right .ulnoradius{
+    transform-origin: right;
+    transform: rotate(-35deg)
+}
+
+/*legal issues*/
+.leg{
+    z-index: -1;
+    top: -25px; left: 7px;
+     transform-origin: 25% 300%;
+}
+.leg div{
+    width: 15px; height: 35px;
+}
+/*leg bones*/
+.leg.left{
+    left: 15px;
+    transform: rotate(-30deg)
+}
+.leg.right{
+     transform: rotate(30deg);
+}
+.leg .tibiofibula{
+    transform-origin: top; z-index: -1;
+    top: 25px; transform: rotate(50deg)
+}
+/*right out*/
+.right{
+    z-index: 1;
+}
+.left{
+    z-index: -1;
+}
+.back{
+    z-index: 0;
+}
+/*skeleton don't show*/
+
+
+/*building block*/
+.block{
+    background: white; transition-duration: .5s;
+}
+.block div{
+    width: 50px; transition: inherit;
+    height: 50px;
+    position: absolute;
+    background: #ffffff47;
+    /*background: black;*/
+    border: 1px solid black;
+}
+.block .top{
+    width: 1000px;
+    transform: skew(45deg, 0deg) rotateX(50deg);
+
+}
+.block .side{
+    transform: skewY(45deg) translate(-28px, 53px) scaleX(0.6);
+    height: 500px;
+}
+.block .face{
+    transform: translate(14px, 42px);
+    width: 1002px; height: 500px;
+    background: gray;
+}
+/*vacuums*/
+.space{
+    background: #616161; z-index: 0;
+    position: relative; transform: translateY(4px);
+    border: 20px outset #616161; border-right-color: #d1d1d1;
+    border-bottom-color: #d1d1d1;
+    border-radius: 20px;
+}

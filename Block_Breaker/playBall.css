@@ -1,0 +1,17 @@
+#pad{
+    width: 80px; position: fixed; height: 25px;
+    background: gray; box-sizing: border-box;
+    top: 84%; left: calc(50% - 214px);
+    border-radius: 0.1em 0.1em 1em 1em;
+    border: 5px outset;
+    border-top: none;
+    border-top: 4px outset #a67361; z-index: 122;
+}
+#player .ball{
+    border-radius: 100em; position: fixed;
+    background: white;
+    width: 14px; height: 14px;
+    border: 3px outset; box-sizing: border-box;
+    top: 60; left: calc(50% - 215px); z-index: 123;
+/*     transform: translate(0px, -25px); */;
+}

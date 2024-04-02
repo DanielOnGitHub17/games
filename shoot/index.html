@@ -1,0 +1,74 @@
+<html><head><title>SHOOT</title><style>
+@import url(../general.css);
+@import url(shoos.css);</style></head>
+<body>
+<div id="box">
+<div id=pad>
+<!-- top -->
+<input '' type='button' value='↖'>
+<input '' type='button' value='↑'>
+<input '' type='button' value='↗'>
+<!-- middle -->
+<input '' type='button' value='←'>
+<input type='button' value='X'>
+<input '' type='button' value='→'>
+<!-- bottom -->
+<input '' type='button' value='↙'>
+<input '' type='button' value='↓'>
+<input '' type='button' value='↘'>
+</div>
+</div>
+<div id='controls'>
+For Player one
+<ol>
+<li>Use period key to shoot</li>
+<li>Use / for clockwise rotation</li>
+<li>Use \ for anti-clockwise rotation</li>
+<li>The default controls for Upward, right,
+ downward, and left movement, are 
+ ArrowUp, ArrowRight, ArrowDown and ArrowLeft respectively</li>
+</ol>
+For Player two
+<ol>
+<li>Use 'x' key to shoot</li>
+<li>Use e for clockwise rotation</li>
+<li>Use q for anti-clockwise rotation</li>
+<li>The default controls for Upward, right,
+ downward, and left movement, are 
+ w, d, s and a respectively</li>
+</ol>
+</div>
+<div id='settings'>
+<h1>Settings</h1>
+<form method='post'>
+<legend></legend>
+ <div id='player1'>Controls for Player one: <input placeholder='Up' class='ArrowUp'><input placeholder='Right' class='ArrowRight'><input placeholder='Down' class='ArrowDown'><input placeholder='Left' class='ArrowLeft'>
+<input placeholder='shoot' class='.'><input placeholder='rotate-right' class='/'><input placeholder='rotate-left' class='\'>
+<p>
+Pick color: <input name = 'colo1' value='#00ff00' type='color'></p>
+Your Name: <input class='namer' value='player1'></input>
+ </div>
+
+<div id='player2'>Controls for Player two: <input placeholder='Up' class='w'><input placeholder='Right' class='d'><input placeholder='Down' class='s'><input placeholder='Left' class='a'>
+<input placeholder='shoot' class='x X'><input placeholder='rotate-right' class='e'><input placeholder='rotate-left' class='q'>
+<p>Pick color: <input name = 'colo2' value='#0000ff' type='color'></p>Your Name: <input class='namer' value='player2'></input>
+</div>
+<div id='mode'>
+<h2>Choose a game mode</h2>
+<label>
+<input type="radio" name='mode' value="alone" checked>  <i>I</i> can do it alone
+</label>
+<label>
+<input type="radio" name='mode' value="united">  There is power in unity
+</label>
+<label>
+<input type="radio" name='mode' value="hatred">  Am I my brother's keeper???
+</label>
+</div>
+<div>Difficulty (1-10): <input type='range' value = '1'
+ min='1', max='10'></div>
+use pad: <input type='checkbox' id='sf'>
+<input type='submit' value='SAVE SETTINGS'></form>
+</div>
+<script src='funcs.js'></script>
+<script src='shoot_improved.js'></script></body></html>

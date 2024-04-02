@@ -1,0 +1,93 @@
+/*Dont forget hack embed*/
+embed{
+    position: fixed;
+    top: calc(50% - 200px); left: calc(50% - 200px);
+    --w: 400px;
+    z-index: 2; width: var(--w); height: var(--w)
+}
+body{
+    font-family: cursive; margin: 0;
+}
+#board{
+    background: linear-gradient(
+    green, white 30%, white 70%, green 100%);
+    width: 1200px; height: 625px; position: relative;
+    top: 10px; left: calc(50% - 600px)
+}
+#count, #info{
+    opacity: 0; transition: opacity .5s;
+    height: fit-content; background: white;
+    width: fit-content; border: 1px solid;
+    position: absolute; top: 30%;
+    left: 30%; z-index: 3;
+}
+.card{
+    width: 150px; height: 225px; position: relative; margin: 10px;
+    border: 2px solid brown; cursor: pointer;
+    border-radius: .3em; color: brown; font-size: 35px;
+    transition: transform .5s; background-color: white;
+    padding: 12px 25px 0px 10px; text-align: center;
+    line-height: 180px; display: inline-block;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 5px 32px, center center, 120px 165px;
+    background-size: 35px, 105px, 35px; zoom: .7
+}
+.card:before, .card:after{
+    float: left; /*13th Aug 2022. I just learnt how to use variables in CSS through codepen.io*/
+    content: var(--value); transition: inherit; line-height: initial;
+}
+.card:before{
+    transform: translate(-1px, -20px)
+}
+.card:after{
+    transform: rotate(180deg) translate(-90px, -180px);
+}
+/*player & enemy*/
+#market, #holder, .play{
+    position: absolute;  height: 200px; width: 190px;
+    border: 3px double brown; border-radius: 3em;
+}
+.play{
+    width: 1000px; background: #00800030; left: calc(50% - 503px);
+}
+.play .card{
+    transition: left .5s
+}
+#player before, #player after{
+    border: 5px double brown; width: 50px; height: 50px; border-radius: 1em;
+    transform: rotate(45deg); position: absolute; top: 80px; left: -32px; cursor: pointer;
+}
+#player before{
+    border-right: none; border-top: none;
+}
+#player after{
+    border-left: none; border-bottom: none;
+    left: 980px;
+}
+#player{
+    top: calc(100% - 210px)
+}
+#cp, #cw{
+    position: absolute; border: 1px solid green;
+    overflow: hidden; left: 140px;
+    width: 729.5px; height: 180px; display: flex; flex-wrap: wrap; flex-direction: column;
+}
+
+/*market and holder*/
+#market, #holder{
+    top: 208px; background: sienna; overflow: hidden; z-index: 0;
+    cursor: pointer;
+}
+#market::after, #holder::after{
+    content: 'whot whot'; color: white; font-size: 25px;
+    position:absolute; top: 40%; left: 22%; z-index: -1
+}
+#holder{
+    left: calc(50% - 100px); cursor: default;
+}
+#holder .card{
+    position: absolute; top: 10px; left: 30px; cursor: default;
+}
+#info{
+    left: 47%; padding: 20px;
+}

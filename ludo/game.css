@@ -1,0 +1,25 @@
+body{}
+label{
+    display: block;
+    color: white;
+    font-size: 20px;
+    outline-style: outset;
+}
+[type=radio]{
+    width: 20px; height: 20px;
+}
+[placeholder]{
+    width: fit-content; cursor: text; color: white;
+    background: #0a323d; height: 30;
+}
+#settings{
+    height: 550px; width: fit-content; left: 0;
+    padding:20; left: calc(50% - 205px);
+}
+#settings *{
+    left:0
+}
+#names{
+    line-height: ; /*filter effect wow*/;
+}
+/* *{display: none} */

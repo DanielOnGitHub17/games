@@ -1,0 +1,16 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center; flex-flow: column;
+}
+#container{
+    display: flex; border: 10px double #b4b4ff; border-radius: 1em;
+    flex-wrap: wrap-reverse; height: fit-content; cursor: pointer;
+}
+#moves::before{
+    content: "Moves left: ";
+}
+#container div{
+    height: 50px; width: 50px; border: 1px solid white;
+    border-radius: inherit; rtransition: box-shadow .3s
+}

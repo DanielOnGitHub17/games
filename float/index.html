@@ -1,0 +1,16 @@
+<html>
+<head><title>Try to float</title><link rel='stylesheet' href='float.css'></head>
+<body>
+<div id='box'>
+<form> 
+Difficulty: <input value='1' type='number' id='number' min=1 max=5>
+<br><br><input value='Start' type='submit'></form>
+<form id='restart'></form>
+<div id='info'></div><div id='phony'>
+<div id='u' ontouchstart="player.move(0)">↑</div><div id='r' ontouchstart="player.move(1)">→</div><div id='d' ontouchstart="player.move(2)">↓</div><div id='l' ontouchstart="player.move(3)">←</div>
+</div>
+<script src='../../funcs.js'></script>
+<script src='float.js'></script>
+<div id='hud'><span id='you'></span><span id='shot'></span></div>
+</div></body>
+</html>

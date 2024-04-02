@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Block Breaker</title>
+<style>
+@import url(BB.css);
+@import url(Blocks.css);
+@import url(playBall.css)
+</style>
+</head>
+<body>
+
+<div id='GAME'>
+<div id='HUD'><div id='SCORE'></div><div id='LIVES'></div></div>
+<div id='site'></div>
+<div id='PLAYER'>
+<div id='pad'></div>
+<button>PAUSE</button>
+<div id='weapons'><input type='button' id='shields'><input type='button' id='bullets'><input type='button' id='quakes'></div>
+<div id='controls'><input type='button' id='left' value='←'><input type='button' id='right' value='→'></div>
+</div>
+</div>
+
+</body>
+<script>
+// addEventListener('mousedown', event=>alert('OWWW!!!'))
+</script>
+<!-- variable and function and events definitions -->
+<script src='funcs.js'></script>
+<script src='vars.js'></script>
+<script src='funcs2.js'></script>
+<script src='misc.js'></script>
+<!-- all the classes -->
+<script src='Block.js'></script>
+<script src='Ball.js'></script>
+<script src='Player.js'></script>
+<!-- then 'main' -->
+<script src='BB.js'></script>
+</html>

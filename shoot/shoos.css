@@ -1,0 +1,85 @@
+#box{
+    border: 50px double #00000070;
+    border-radius: 1em; width: 85%; height: 80%; opacity: 50%;
+    position: fixed; left: 4%; top: 2%; background: #00000099;
+    text-align: center; cursor: not-allowed;
+    transition-property: opacity, background;
+    transition-duration: 1s; fill-opacity: red;
+}
+#settings{
+    margin: 7em 0 0 15em; background: yellow;
+    border-radius: 1em; border: 3px solid black; font: bold 18px Arial;
+    width: 55%; transform: rotate(-5deg);text-align: center;
+}
+#controls{
+ opacity: 50%; width: 20px;
+ border: 3px solid black; position: fixed;
+ left: 0; top: 10; height: 100%;
+ background: rgb(0, 0, 0, 0.5);
+ color: white; overflow: hidden;
+ transition-property: opacity, width;
+ transition-duration: 1s; z-index: 39;
+}
+#controls:hover{
+ opacity: 100%; width: 200px;
+}
+h1{
+     line-height: .5em
+}
+form{
+    padding: 1em;
+}
+#player2{
+    display: none
+}
+input[type='range'],input[type='submit']{
+    width: -webkit-fill-available;
+}
+input[type='submit']{
+    height: 50px;
+    box-shadow: 6px 6px 5px #00000085;
+}
+input[type='submit']:active{
+    box-shadow: 2px 0px 5px #00000085; margin-top: 2px;
+}
+input[placeholder]{
+    width: 100; height: 100; background: #000000a3; color: black;
+    font: bold 15px arial; text-align: center; border-radius: 2em;
+
+}
+
+legend{
+    font: bold 23px arial; color: #ff00008a; text-transform: uppercase;
+    text-align: center;
+}
+
+.enemy, .player, #obst{
+    position: absolute;
+}
+#obst{
+    width: 10%; height: 10%; background: black
+}
+.player, .enemy{
+     border-radius: 0.5em;
+    text-align: center; box-shadow: 3px 3px 5px #00000085;
+    perspective: 300; z-index: 1;
+}
+.enemy{
+    background: #ff0000; /*color: white;*/z-index: 0;
+}
+.head{
+    width: 50%; height: 50%; position: relative; top: -35%;
+    left: 23.5%; background: #9d9dff; border-radius: .3em;
+}
+.enemy .head{
+    /*background: black;*/
+}
+.bullet{
+    position: absolute; background: black; box-shadow: 3px 3px 5px #00000085;
+}
+.deadBullet{
+    display: none;
+}
+.namer{
+    background: #5c5c00; width: 60px; height: 39px;
+}

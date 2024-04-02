@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Memory Game</title>
+        <style>
+            @import url(styles.css)</style>
+    </head>
+    <body>
+        <form id=settings>
+            <h2 id=title>Memory Game
+</h2>
+            <marquee id=helps scrollAmount=10>The Memory game has four game modes:
+Bible, Pictures, Words, and Numbers. 
+Reveal two same cards to score a point and get another chance to play again.
+ In Bible mode, the cards contain bible verses; in picture mode, pictures; 
+ and in number mode, well, numbers.</marquee>
+            <h3>Choose Game Scheme</h3>
+            <ul>
+                <li>
+                    <input type=radio disabled name=scheme value=bible id=bible>
+                    <label for=bible>The Bible</label>
+                </li>
+                <li>
+                    <input type=radio disabled name=scheme value=pictures id=pictures>
+                    <label for=pictures>Pictures</label>
+                </li>
+                <li>
+                    <input type=radio disabled name=scheme value=words id=words>
+                    <label for=words>Words</label>
+                </li>
+                <li>
+                    <input type=radio name=scheme value=numbers id=numbers checked>
+                    <label for=numbers>Numbers</label>
+                </li>
+                <li>
+                    <label for=player1>Player 1 Name: </label>
+                    <input type=text name=player1 id=player1 placeholder="Player 1">
+                </li>
+                <li>
+                    <label for=player2>Player 2 Name: </label>
+                    <input type=text name=player2 id=player2 placeholder="Player 2">
+                </li>
+            </ul>
+            <p id='errormessages'></p>
+            <input type=submit value='Start Game' id=dd>
+        </form>
+        <div id=gameBox hidden>
+            <div class=player>
+                <span class=nameof></span>
+                . Points: <span class='points'></span>
+            </div>
+            <div id=board></div>
+            <div class=player>
+                <span class=nameof></span>
+                . Points: <span class='points'></span>
+            </div>
+        </div>
+        <script src=funcs.js></script>
+        <script src=script.js></script>
+    </body>
+</html>

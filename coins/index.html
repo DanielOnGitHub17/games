@@ -1,0 +1,364 @@
+<html>
+    <head>
+        <title>Collect the coins</title>
+        <style id='coins.css'>
+            body {
+                font-family: cursive;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                background: /*75px solid*/ #a5a5a5;
+                background-image: /*url(images/1.png);*/ position: relative;
+                margin: 0;
+            }
+
+            #sky {
+                background: skyblue;
+                /*background-image: url(images/0.png);*/
+                position: fixed;
+                width: 650px;
+                height: 88%;
+                border-radius: 100px/70px;
+            }
+
+            {
+                box-sizing: border-box
+            }
+
+            form, #info {
+                border: 2px solid ghostwhite;
+                width: 150px;
+                text-align: center;
+                border-radius: 1em;
+                background: gray;
+                top: calc(50% - 75px);
+                left: calc(50% - 75px);
+                box-shadow: 0px 0px 50px #2d2c2c;
+                transition: opacity 1s;
+            }
+
+            form * {
+                border-radius: inherit;
+                text-align: center;
+                height: 50px;
+            }
+
+            [type=submit] {
+                width: -webkit-fill-available;
+            }
+
+            #restart, #info {
+                opacity: 0;
+            }
+
+            #info {
+                width: 200px;
+                background: #f8f8ff61;
+                padding: 30px;
+                top: 0%;
+                border: none;
+                font-size: 2em;
+                left: calc(50% - 120px)
+            }
+
+            /*for prayer*/
+            #player div, .coin, .bomb {
+                position: relative;
+                background: black;
+                border: 1px solid #ffffffa6;
+                box-shadow: 0px 0px 50px #2d2c2c;
+                perspective: 0px;
+                perspective-origin: center;
+                transition: inherit;
+            }
+
+            #player, .bullet,form, #info {
+                position: absolute;
+            }
+
+            #player {
+                transition-property: top, left, transform;
+                transition-duration: .5s;
+                transition-timing-function: linear;
+                top: 80%;
+                left: 274px;
+            }
+
+            #player div {
+                zoom: 1.5; border-radius: 5em
+            }
+
+            /*player all*/
+            .head {
+                width: 22px;
+                height: 22px;
+                left: 17px;
+                top: 3;
+                border-radius: 3em;
+                transform: scaleX(.8);
+                z-index: 3
+            }
+
+            .body {
+                width: 7px;
+                height: 42px;
+                left: 24.5px;
+                z-index: 1;
+            }
+
+            .hands, .legs {
+                width: 52px;
+                height: 7px;
+                top: -32px;
+                border-radius: 2em;
+                transform: rotate(360deg);
+            }
+
+            .legs {
+                top: -13;
+                z-index: 2
+            }
+
+            /*#player .head, .body{
+    box-shadow: none
+}shake = setInterval(()=>{
+    a.style.transform = 'rotateY(0deg)'
+    setTimeout(()=>a.style.transform = 'rotateY(70deg)', 500)}, 700)*/
+            /*Money moves*/
+            .coin {
+                background: #ffffff96;
+                border-radius: .9em;
+                width: 15px;
+                height: 15px;
+                border: 10px inset gold;
+                /*top: 100%; left: 10%;*/
+            }
+
+            .bomb {
+                border-color: black
+            }
+
+            /*Life is good*/
+            #life {
+                width: 0%;
+                height: 10px;
+                position: absolute;
+                background: red;
+                top: -30px;
+                border-radius: 3em;
+                transition: width .5s;
+            }
+
+            @media screen and (min-width: 5) {
+                #player {
+                    transition-duration: .1s;
+                }
+
+                body {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id='sky'>
+            <form>
+                Press the button to start
+<input value='Start' type='submit'>
+            </form>
+            <form id='restart'></form>
+            <div id='info'></div>
+            <div id='life'></div>
+            <script id='funcs.js'>
+                function loadSounds(folder='', _='.wav', sources=['mouse_click', 'monster_minigun', 'shotgun', 'monster_hit', 'mouse_error', 'explosion', 'male_death', 'bomb_activate', 'energy_on', 'big_explosion', 'Rip']) {
+                    sound = [];
+                    for (let i = 0; i < sources.length; i++) {
+                        sound[i] = new Audio;
+                        sound[i].src = folder + sources[i] + _
+                    }
+                }
+
+                function random(n) {
+                    return parseInt(n * Math.random())
+                }
+                make = (name='div')=>document.createElement(name);
+
+                function touching(rect1, rect2) {
+                    if (rect1.right > rect2.left && rect1.left < rect2.right) {
+                        // rect1 is intersecting rect2 on x axis
+                        // But they could be at different heights
+
+                        if (rect1.top < rect2.bottom && rect1.bottom > rect2.top) {
+                            // rect1 is intersecting rect2 on y axis as well
+                            // Collision detected
+                            return true;
+                        }
+                    }
+                    ;return false;
+                }
+                ;</script>
+            <script id='coins.js'>
+                let parts = ['head', 'body', 'hands', 'legs']
+                  , sky = document.getElementById('sky')
+                  , cont = sky.getBoundingClientRect()
+                  , submit = document.querySelector("[type='submit']")
+                  , life = document.getElementById('life')
+                  , coins = []
+                  , score = 0
+                info = document.getElementById('info')
+                function start(n) {
+                    if (!n)
+                        n = 2
+                    player = new Player
+                    player.controls = ['ArrowLeft', 'ArrowRight']
+                    handleInput(player)
+                    loadSounds('../sound/', '.wav', ['mouse_click', 'Coin', 'explosion']);
+                    sound[0].volume = .1
+                    LevelManageMent = setInterval(()=>{
+                        if (coins.length < 10)
+                            coins.push(new Coin(random(4)))
+                    }
+                    , 1000)
+                }
+                function tend() {
+                    return score <= 0;
+                }
+                function showAndHide(text='Ouch', time=1000) {
+                    info.textContent = text;
+                    info.style.opacity = 1;
+                    setTimeout(()=>info.style.opacity = 0, time)
+                }
+                function end(str) {
+                    let restart = document.getElementById('restart')
+                    restart.innerHTML = `${str}<input value='restart' type='submit'
+    onclick="event=>document.forms[1].submit()">`
+                    restart.style.opacity = 1;
+                    clearInterval(LevelManageMent);
+                }
+                class Player {
+                    constructor(where=1) {
+                        this.where = where;
+                        this.color = 'black'
+                        this.hum = make()
+                        this.hum.setAttribute('class', 'human')
+                        this.hum.setAttribute('id', 'player')
+                        sky.appendChild(this.hum)
+                        for (let each of parts) {
+                            this.hum[each] = make()
+                            this.hum[each].setAttribute('class', each)
+                            this.hum.appendChild(this.hum[each])
+                        }
+                    }
+                    get body() {
+                        return this.hum.getBoundingClientRect()
+                    }
+                    move(dir) {
+                        if (!dir)
+                            dir--;
+                        this.where += dir
+                        if (this.where < 0) {
+                            this.where = 0;
+                        } else if (this.where > 2) {
+                            this.where = 2;
+                        } else
+                            sound[0].play()
+                        this.hum.style.left = `${this.where * 250 + 24}`
+                        document.querySelectorAll('.hands, .legs').forEach(i=>i.style.transform = `rotate(${this.where * 360}deg)`)
+                    }
+                    get center() {
+                        let me = this.all;
+                        return new Vec(me.right - me.width / 2,me.bottom - me.height / 2)
+                    }
+                }
+                class Coin {
+                    constructor(where) {
+                        this.where = where;
+                        this.hum = make()
+                        if (this.where == 3) {
+                            where = random(3)
+                            this.hum.setAttribute('class', 'coin bomb')
+                        } else
+                            this.hum.setAttribute('class', 'coin')
+                        sky.appendChild(this.hum);
+                        this.rot = -10;
+                        this.hum.style.left = `${where * 300 - (where - 1) * 50}`
+                        this.move = setInterval(()=>{
+                            this.rot += 5
+                            this.hum.style.transform = `rotateY(${this.rot}deg)`;
+                            this.hum.style.top = `${this.rot}px`;
+                            if (touching(this.box, player.body)) {
+                                if (this.where == 3) {
+                                    end(`Game Over. You score: ${score}`)
+                                    sound[2].play();
+                                    showAndHide('oops!')
+                                    for (let x of coins) {
+                                        x.remove()
+                                    }
+                                } else {
+                                    score++;
+                                    sound[1].play();
+                                    showAndHide('Nice!')
+                                }
+                                this.remove()
+                            }
+                            if (this.rot > cont.height) {
+                                this.remove();
+                                if (this.where != 3) {
+                                    score -= 2;
+                                    showAndHide('Missed!')
+                                    if (tend()) {
+                                        end(`Game Over. You score: ${score}`)
+                                        for (let x of coins) {
+                                            x.remove()
+                                        }
+                                    }
+                                }
+                            }
+                            life.style.width = 5 * score + '%'
+                        }
+                        )
+                    }
+                    get box() {
+                        return this.hum.getBoundingClientRect()
+                    }
+                    remove() {
+                        delete this.hum.remove();
+                        clearInterval(this.shake);
+                        clearInterval(this.move)
+                        delete coins.splice(coins.indexOf(this), 1);
+                    }
+                }
+                function handleInput(x) {
+                    addEventListener('keydown', event=>{
+                        let key = event.key;
+                        if (x.controls.includes(key)) {
+                            x.move(x.controls.indexOf(key))
+                        }
+                    }
+                    )
+                    addEventListener('touchstart', event=>{
+                        X = event.changedTouches[0].screenX
+                    }
+                    )
+                    addEventListener('touchend', event=>{
+                        let a = event.changedTouches[0].screenX - X;
+                        if (a > 100)
+                            x.move(1);
+                        if (a < -100)
+                            x.move(0)
+                    }
+                    )
+                }
+                submit.addEventListener('click', event=>{
+                    event.preventDefault()
+                    let form = document.forms[0];
+                    form.style.opacity = '0';
+                    event.target.disabled = true;
+                    start();
+                }
+                )
+            </script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>ludo game</title>
+        <style>
+            @import url(../Block_Breaker/BB.css);
+            @import url(board.css);
+        @import url(game.css);</style>
+    </head>
+    <body id=container>
+        <div id=board></div>
+        <div id=SETTINGS class='menu'>
+                <h2>Settings</h2>
+            <label for='default'><abbr title='one player against computer'>Default</abbr>:<input name='mode' id='default' type="radio"></label><br>
+            <label for='two'>Two players:<input name='mode' id='two' type="radio"></label><br>
+            <label for='four'>Four players:<input name='mode' id='four' type="radio"></label><br>
+            <div id=names>
+            </div>
+            <button onclick="goToScreen('board')">START GAME</button>
+            <button onclick="goToScreen('MAIN')">MAIN MENU</button>
+        </div>
+        <script src='funcs.js'></script>
+        <script src='board.js'></script>
+        <script src='seed.js'></script>
+        <script src='dice.js'></script>
+        <script src='ludo.js'></script>
+        <script src='events.js'></script>
+        <script src='game.js'></script>
+    </body>
+</html>

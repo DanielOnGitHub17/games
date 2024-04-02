@@ -1,0 +1,159 @@
+:first-letter{
+    opacity: .4;
+}
+body{
+    background: ;
+    font-family: sans-serif;
+    border-color: purple;
+    display: flex; align-items: center; justify-content: center;
+    flex-flow: column;
+    transition: .5s background;
+}
+*{
+    border-color: purple;
+    border-style: solid;
+    border-width: 0;
+    transform-style: preserve-3d;
+    box-sizing:border-box;
+}
+body>*{
+    width: 80vw;
+}
+#title, h3, ul>li, marquee{
+    border-width: 15px; padding: 6px 50px 6px 6px;
+    border-bottom-width: thin;
+    border-top-width: thin;
+    border-right-width: thin;
+
+}
+marquee{
+    border-top: none; border-bottom: none;
+    padding: 10px; font-size: 1.3em;
+    border-right: 15px solid transparent;
+    outline: 1px solid purple;
+}
+form{
+    border: 3px solid purple;
+    padding: 20px;
+}
+li{
+    list-style-type: none;
+    margin: 0 0 10px -25px;
+    border-left-width: 10px;
+    width: fit-content;
+}
+label, input, button{
+    cursor: pointer; transition: .2s;
+    --sc: 3;
+}
+[type=text]{
+    border-width: 1px; cursor: auto;
+}
+[type=radio]{
+    transform: scale(2); margin-right: 1em;
+}
+input:hover, button:hover, :focus{
+    transform: scale(var(--sc));
+    border-width: 5px;
+}
+[type=submit]{
+    font-size: 1.8em;
+    background: linear-gradient(90deg, purple -10%, transparent 40%, purple 120%);
+    border: 2px solid purple;
+    float: right; --sc: 1.2;
+}
+:active, :focus{
+    outline: none
+}
+/* board */
+#gameBox{
+    flex-flow: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+#board{
+    padding: 50px;
+/*      text-align: center; */
+    color: purple; font-size: x-large;
+    display: flex;
+    width: 80vw; font-family: monospace;
+    flex-wrap: wrap;
+    height: 70vh;
+    background: rgb(255 255 255 / 30%);
+    border-width: 10px;
+}
+#board button{
+    float: right;
+    background: purple;
+    color: white; width: -webkit-fill-available;
+    --sc: 1.2
+}
+.player{
+    border-width: 10px;
+    width: -webkit-fill-available;
+    margin: 20px; padding-left: 50px;
+    font-size: xxx-large;
+}
+#gameBox>div:first-child{
+    transform: rotate(180deg)
+}
+/* cards */
+.card{
+    width: 100px; height: 100px;
+    transition: .5s; --sc: 1;--ry: 0deg; --rx: 0deg; --z: 0; 
+    position: absolute;
+    transform: translateZ(var(--z)) rotateY(var(--ry))
+     rotateX(var(--rx)) scale(var(--sc));
+    margin: 10px; cursor: pointer; top: 0;
+    color: black;
+}
+.card:hover, .card:focus{--sc: 1.5; --z: 100px; border: none;}
+.card[selected=true]{
+    --ry: -180deg; --sc: 1.5; --z: 100px; border: none;
+     cursor: auto;
+}
+.card>div, .card :after, .card :before{
+    width: 100px; height: 100px; border-width: 2px;
+    transition: .5s transform;
+    position: absolute;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold;
+    transform: translateZ(0px) rotateY(180deg);
+    box-sizing: border-box;
+    background: yellow;
+    transform-origin: center;
+    font: bold xxx-large monospace ;
+}
+.card>.front{
+    --z: -50px;
+}
+.card>.back{
+    transform: translateZ(50px); background: yellow; --z: 50px
+}
+.card :after{
+    content: ''; width: 50px;
+    transform: rotateY(90deg) translateX(25px) translateZ(-50px);
+    background: blue;
+}
+.card :before{
+    content: '';
+    width: 100px; height: 50px;
+    transform: rotateX(90deg) translateX(-2px) translateZ(var(--z))
+    translateY(-25px);
+    background: red; #8f50c0
+}
+#errormessages{
+    color: red;
+}
+@media screen and (max-width: 980px){
+    form{
+         font-size: 2em;
+    }
+    .card:hover{
+        --sc: 1
+    }
+    .card[selected=true]:hover{
+        --sc: 1.5
+    }
+}
