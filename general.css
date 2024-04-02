@@ -33,5 +33,5 @@
 }
 
 [value='↖'], [value='↗'], [value='↘'], [value='↙']{
-/*     visibility: hiden; */
+    visibility: hidden;
 }
