@@ -20,7 +20,7 @@ class Playable{
         }, 20);
         let life = 100;
         this.__defineGetter__('life', ()=>life);
-        this.__defineSetter__('life', (n)=>{this.block.body.top.textContent=parseInt(life=n); if(life<=0) this.kill()});
+        this.__defineSetter__('life', (n)=>{this.block.body.top.textContent=parseInt(life=n); if(life<1) this.kill()});
         this.life=life;
         if(type=='Player') this.event();
         playables[this.type+'s'].push(this)
