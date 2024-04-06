@@ -2,13 +2,15 @@ body{
     font-family: cursive; display: flex; justify-content: center;
     align-items: center; overflow: hidden;
     background: /*75px solid*/ #a5a5a5;
-    background-image: /*url(images/1.png);*/ position: relative; margin: 0;
+    /* background-image: url(images/1.png);; */
+     position: relative;
+     margin: 0;
 }
 #sky{background: skyblue;
     /*background-image: url(images/0.png);*/ position: fixed; width: 650px; height: 88%;
     border-radius: 100px/70px;
 }
-{
+*{
      box-sizing: border-box
 }
 form, #info{
