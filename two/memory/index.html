@@ -2,8 +2,10 @@
 <html>
     <head>
         <title>Memory Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            @import url(styles.css)</style>
+            @import url(styles.css);
+            </style>
     </head>
     <body>
         <form id=settings>
@@ -17,6 +19,10 @@ Reveal two same cards to score a point and get another chance to play again.
             <h3>Choose Game Scheme</h3>
             <ul>
                 <li>
+                    <input type=radio name=scheme value=numbers id=numbers checked>
+                    <label for=numbers>Numbers</label>
+                </li>
+                <li>
                     <input type=radio disabled name=scheme value=bible id=bible>
                     <label for=bible>The Bible</label>
                 </li>
@@ -27,10 +33,6 @@ Reveal two same cards to score a point and get another chance to play again.
                 <li>
                     <input type=radio disabled name=scheme value=words id=words>
                     <label for=words>Words</label>
-                </li>
-                <li>
-                    <input type=radio name=scheme value=numbers id=numbers checked>
-                    <label for=numbers>Numbers</label>
                 </li>
                 <li>
                     <label for=player1>Player 1 Name: </label>
