@@ -1,0 +1,123 @@
+/* General body and layout styles */
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header styles */
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+h1 a {
+    text-decoration: none;
+    color: #ffcc00;
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+/* Paragraph styles */
+p {
+    font-size: 1rem;
+    color: #ccc;
+    max-width: 800px;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Game section titles */
+h3 {
+    font-size: 1.5rem;
+    color: #ffcc00;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Game list styling */
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p span {
+    font-weight: bold;
+    color: #ffcc00;
+    text-transform: uppercase;
+}
+
+p a {
+    color: #ff6600;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for each game section */
+p:nth-child(odd) {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+}
+
+p:nth-child(even) {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+}
+
+p:hover {
+    background-color: #444;
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Links and buttons */
+a {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Basic responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}
