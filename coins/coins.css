@@ -1,75 +1,134 @@
-body{
-    font-family: cursive; display: flex; justify-content: center;
-    align-items: center; overflow: hidden;
-    background: /*75px solid*/ #a5a5a5;
+body {
+    font-family: cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background:
+        /*75px solid*/
+        #a5a5a5;
     /* background-image: url(images/1.png);; */
-     position: relative;
-     margin: 0;
+    position: relative;
+    margin: 0;
 }
-#sky{background: skyblue;
-    /*background-image: url(images/0.png);*/ position: fixed; width: 650px; height: 88%;
+
+#sky {
+    background: skyblue;
+    /*background-image: url(images/0.png);*/
+    position: fixed;
+    width: 650px;
+    height: 88%;
     border-radius: 100px/70px;
 }
-*{
-     box-sizing: border-box
+
+* {
+    box-sizing: border-box
 }
-form, #info{
-    border: 2px solid ghostwhite; width: 150px; text-align: center;
-    border-radius: 1em; background: gray;
-    top: calc(50% - 75px); left: calc(50% - 75px); box-shadow: 0px 0px 50px #2d2c2c;
+
+form,
+#info {
+    border: 2px solid ghostwhite;
+    width: 150px;
+    text-align: center;
+    border-radius: 1em;
+    background: gray;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+    box-shadow: 0px 0px 50px #2d2c2c;
     transition: opacity 1s;
 }
-form *{
-    border-radius: inherit; text-align: center;
+
+form * {
+    border-radius: inherit;
+    text-align: center;
     height: 50px;
 }
-[type=submit]{
+
+[type=submit] {
     width: -webkit-fill-available;
 }
-#restart, #info{
+
+#restart,
+#info {
     opacity: 0;
 }
-#info{
-    width: 200px; background: #f8f8ff61;
-    padding: 30px; top: 0%; border: none; font-size: 2em;
+
+#info {
+    width: 200px;
+    background: #f8f8ff61;
+    padding: 30px;
+    top: 0%;
+    border: none;
+    font-size: 2em;
     left: calc(50% - 120px)
 }
+
 /*for prayer*/
 
-#player div, .coin, .bomb{
+#player div,
+.coin,
+.bomb {
     position: relative;
     background: black;
     border: 1px solid #ffffffa6;
     box-shadow: 0px 0px 50px #2d2c2c;
-    perspective: 0px; perspective-origin: center;
+    perspective: 0px;
+    perspective-origin: center;
     transition: inherit;
 }
-#player, .bullet,form, #info{
+
+#player,
+.bullet,
+form,
+#info {
     position: absolute;
 }
-#player{
-    transition-property: top, left, transform; transition-duration: .5s;
-    transition-timing-function: linear;top: 80%;
+
+#player {
+    transition-property: top, left, transform;
+    transition-duration: .5s;
+    transition-timing-function: linear;
+    top: 80%;
     left: 274px;
 }
-#player div{
-    zoom: 1.5; border-radius: 5em
+
+#player div {
+    zoom: 1.5;
+    border-radius: 5em
 }
+
 /*player all*/
-.head{
-     width: 22px; height: 22px; left: 17px; top: 3; border-radius: 3em;
-     transform: scaleX(.8); z-index: 3
+.head {
+    width: 22px;
+    height: 22px;
+    left: 17px;
+    top: 3;
+    border-radius: 3em;
+    transform: scaleX(.8);
+    z-index: 3
 }
-.body{
-     width: 7px; height: 42px; left: 24.5px; z-index: 1;
+
+.body {
+    width: 7px;
+    height: 42px;
+    left: 24.5px;
+    z-index: 1;
 }
-.hands, .legs{
-    width: 52px; height: 7px; top: -32px;
-    border-radius: 2em; transform: rotate(360deg);
+
+.hands,
+.legs {
+    width: 52px;
+    height: 7px;
+    top: -32px;
+    border-radius: 2em;
+    transform: rotate(360deg);
 }
-.legs{
-    top: -13; z-index: 2
+
+.legs {
+    top: -13;
+    z-index: 2
 }
+
 /*#player .head, .body{
     box-shadow: none
 }shake = setInterval(()=>{
@@ -77,23 +136,36 @@ form *{
     setTimeout(()=>a.style.transform = 'rotateY(70deg)', 500)}, 700)*/
 
 /*Money moves*/
-.coin{
-    background: #ffffff96; border-radius: .9em;
-    width: 15px; height: 15px; border: 10px inset gold;
+.coin {
+    background: #ffffff96;
+    border-radius: .9em;
+    width: 15px;
+    height: 15px;
+    border: 10px inset gold;
     /*top: 100%; left: 10%;*/
 }
-.bomb{border-color: black}
+
+.bomb {
+    border-color: black
+}
 
 /*Life is good*/
-#life{
-    width: 0%; height: 10px; position: absolute; background: red;
-    top: -30px; border-radius: 3em; transition: width .5s;
+#life {
+    width: 0%;
+    height: 10px;
+    position: absolute;
+    background: red;
+    top: -30px;
+    border-radius: 3em;
+    transition: width .5s;
 }
-@media screen and (min-width: 5){
-    #player{
+
+@media screen and (min-width: 5) {
+    #player {
         transition-duration: .1s;
     }
-    body{
+
+    body {
         display: none;
     }
 }

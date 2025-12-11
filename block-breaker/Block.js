@@ -1,46 +1,46 @@
-class Block{
-    constructor(N, w, h, p){
+class Block {
+    constructor(N, w, h, p) {
         this.N = N; this.w = w; this.h = h;
         this.brick = make();
         [this.NAME, this.L, this.reflect] = BLOCKNAMES[N];
         site.appendChild(this.brick);
         this.powerUP = p;
-        setSize(this.brick, new Vec(w*15, h*15), 'px');
-        this.score = 450/(w*h*(1/this.L));
+        setSize(this.brick, new Vec(w * 15, h * 15), 'px');
+        this.score = 450 / (w * h * (1 / this.L));
     }
-    set type(n){
+    set type(n) {
         this.N = n;
     }
-    get type(){
+    get type() {
         return this.N
     }
-    set life(l){
-        this.L=l;
-         if (this.L==0){
-//              console.log('spaced');
-             this.brick.className += ' exploding';
-             PlaYer.score+=this.score;
+    set life(l) {
+        this.L = l;
+        if (this.L == 0) {
+            //              console.log('spaced');
+            this.brick.className += ' exploding';
+            PlaYer.score += this.score;
         }
         if (![0, 1].includes(this.L)) return;
-//         console.log(this.L)
+        //         console.log(this.L)
         [this.NAME, this.L, this.reflect] = BLOCKNAMES[this.L]
     }
-    set NAME(n){
+    set NAME(n) {
         this.name = n;
         this.brick.className = n + ' block';
-//         this.type = BLOCKNAMES[this.N].indexOf(this.name)
+        //         this.type = BLOCKNAMES[this.N].indexOf(this.name)
     }
-    get life(){
+    get life() {
         return this.L
     }
-    get body(){
+    get body() {
         return this.brick.getBoundingClientRect();
     }
-    fall(){
+    fall() {
         setBackground(this.brick, `../images/${POWERUPS[this.P]}.png`)
-        setInterval(()=>stuff)
+        setInterval(() => stuff)
     }
-    remove(){
+    remove() {
         delete this.brick.remove();
         delete blocks.splice(blocks.indexOf(this), 1);
     }

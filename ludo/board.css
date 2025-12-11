@@ -1,18 +1,33 @@
-body{
-    margin: 0; padding: 0; background: white;
-/*     overflow: scroll */
+body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    /*     overflow: scroll */
 }
-body>div, body>div>div{margin: 0}
-#board, #board *{
-    box-sizing: border-box;}
+
+body>div,
+body>div>div {
+    margin: 0
+}
+
+#board,
+#board * {
+    box-sizing: border-box;
+}
+
 /*50 px*/
-td, .die, #cylinder:after, #cylinder:before, .seed{
+td,
+.die,
+#cylinder:after,
+#cylinder:before,
+.seed {
     width: 50px;
     height: 50px;
 }
+
 /*start board*/
 /*griding*/
-#board{
+#board {
     border: 1px solid;
     position: fixed;
     left: calc(50% - 375px);
@@ -21,105 +36,161 @@ td, .die, #cylinder:after, #cylinder:before, .seed{
     display: grid;
     grid-template-rows: 300px 150px 300px;
     grid-template-columns: 300px 150px 300px;
-/*     to make it easy, I would specify grid areas */
+    /*     to make it easy, I would specify grid areas */
     grid-template-areas:
         "home0 road1 home1"
         "road0 end   road2"
         "home3 road3 home2";
     --message: "";
 }
-#road1{transform: rotate(90deg);}
-#road2{transform: rotate(180deg)}
-#road3{transform: rotate(270deg)}/*use JS later of course*/
+
+#road1 {
+    transform: rotate(90deg);
+}
+
+#road2 {
+    transform: rotate(180deg)
+}
+
+#road3 {
+    transform: rotate(270deg)
+}
+
+/*use JS later of course*/
 /*try using a selector to get the 6th child cell of the 2nd child row||oruse JS*/
-#board>table{
-    height:150px;width: 300px;
-    align-self: center; justify-self: center
+#board>table {
+    height: 150px;
+    width: 300px;
+    align-self: center;
+    justify-self: center
 }
+
 /*tables (roads)*/
-[id*='dir']{
+[id*='dir'] {
     width: 60;
-    border-top: 1px solid; height: 0;
-    position: absolute; left: 150; top: 320;
-    
+    border-top: 1px solid;
+    height: 0;
+    position: absolute;
+    left: 150;
+    top: 320;
+
 }
-[id*='dir']:before, [id*='dir']:after{
+
+[id*='dir']:before,
+[id*='dir']:after {
     transition-duration: .5s;
-    content: ''; display: block;
-    background: black; top: 0;
-    width: 20px; height: 1px;
+    content: '';
+    display: block;
+    background: black;
+    top: 0;
+    width: 20px;
+    height: 1px;
     transform: translate(41px, -4.5px) rotate(20deg)
 }
-[id*='dir']:after{
+
+[id*='dir']:after {
     transform: translate(41px, 1.5px) rotate(-20deg)
 }
+
 /*direction specific*/
-#dir00{
-    top: 375; left: 25;
+#dir00 {
+    top: 375;
+    left: 25;
 }
-#dir01{
-    top: 300;left: 269;
+
+#dir01 {
+    top: 300;
+    left: 269;
 }
-#dir10{
-    top: 50; left: 347;
+
+#dir10 {
+    top: 50;
+    left: 347;
 }
-#dir11{
-    top: 300;left: 419;
+
+#dir11 {
+    top: 300;
+    left: 419;
 }
-#dir20{
-    top: 375; left: 675;
+
+#dir20 {
+    top: 375;
+    left: 675;
 }
-#dir21{
-    top: 450; left: 419;
+
+#dir21 {
+    top: 450;
+    left: 419;
 }
-#dir30{
-    top: 700; left: 347
+
+#dir30 {
+    top: 700;
+    left: 347
 }
-#dir31{
-    top: 450;left: 269;
+
+#dir31 {
+    top: 450;
+    left: 269;
 }
-#board:before{
-    content: var(--message); position: fixed;
-    width: 200px; background: #ffffff80;
-   height: 200px; font-size: -webkit-xxx-large;
-    display: flex; text-align: center; align-items: center;
-    border: 1px solid; left: calc(50% - 100px);
-    top: calc(50% - 100px); 
+
+#board:before {
+    content: var(--message);
+    position: fixed;
+    width: 200px;
+    background: #ffffff80;
+    height: 200px;
+    font-size: -webkit-xxx-large;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    border: 1px solid;
+    left: calc(50% - 100px);
+    top: calc(50% - 100px);
     z-index: 11;
-     overflow-wrap: anywhere;
+    overflow-wrap: anywhere;
 }
+
 /*end direction*/
-#board tr{
+#board tr {
     display: flex;
 }
-#board td{
+
+#board td {
     border: 1px solid;
 }
-#board td>div{
+
+#board td>div {
     position: absolute;
-    cursor: pointer; display none;
+    cursor: pointer;
+    display: none;
 }
+
 /* board children */
-#board td>div:nth-child(2){
+#board td>div:nth-child(2) {
     transform: translateY(8px);
 }
-#board td>div:nth-child(3){
+
+#board td>div:nth-child(3) {
     transform: translateX(8px);
 }
-#board td>div:nth-child(4){
+
+#board td>div:nth-child(4) {
     transform: translateY(12px);
 }
-#board tr:nth-child(2) td:nth-child(6){
+
+#board tr:nth-child(2) td:nth-child(6) {
     border-right: none;
 }
+
 /* End bored children */
 /*home*/
-#end{
+#end {
     border: 25px solid;
     border-color: blue yellow green red;
 }
+
 /*dice stuff*/
-#cylinder{
+#cylinder {
     background: linear-gradient(90deg, red 0, red 50%, yellow 50%);
     border-color: inherit;
     cursor: pointer;
@@ -127,34 +198,56 @@ td, .die, #cylinder:after, #cylinder:before, .seed{
     display: flex;
     flex-wrap: wrap-reverse;
 }
-#cylinder:before, #cylinder:after{
+
+#cylinder:before,
+#cylinder:after {
     content: '';
-    background: red; top: ; 
+    background: red;
+    /* top: ; */
 }
-.die{
+
+.die {
     border: 2px solid;
     border-color: inherit;
     background: white;
     box-sizing: border-box;
-    letter-spacing: 2px; text-align: center;
+    letter-spacing: 2px;
+    text-align: center;
     -webkit-text-security: square;
     box-shadow: 0px 2px 10px 4px;
-    display: flex; justify-content: center; align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow-wrap: anywhere;
-/*     transition-duration: 1s; transition-timing-function: linear; */
-    transition: transform 1s linear; z-index: 10;
+    /*     transition-duration: 1s; transition-timing-function: linear; */
+    transition: transform 1s linear;
+    z-index: 10;
 }
-.die:last-child{border-right-color: blue}
-.die:first-child{border-left-color: green;}
-#cylinder:before{background: green}
-#cylinder:after{background: blue;}
+
+.die:last-child {
+    border-right-color: blue
+}
+
+.die:first-child {
+    border-left-color: green;
+}
+
+#cylinder:before {
+    background: green
+}
+
+#cylinder:after {
+    background: blue;
+}
+
 /* end dice */
-#board .seed{
+#board .seed {
     border-radius: 50px;
     opacity: 1;
     border: 2px solid;
 }
-[id*='home']{
+
+[id*='home'] {
     display: flex;
     padding: 100px;
     flex-wrap: wrap;
@@ -162,8 +255,10 @@ td, .die, #cylinder:after, #cylinder:before, .seed{
     justify-content: center;
     --message: 'My turn';
 }
-[id*='home']:after{
+
+[id*='home']:after {
     content: var(--message);
 }
+
 /*end home*/
 /*end board*/

@@ -1,80 +1,148 @@
-body{
+body {
     background: #efefef;
-/*      background-image: radial-gradient(white 0%, gray 50%, black); */
-    margin: 20px; overflow: hidden;
+    /*      background-image: radial-gradient(white 0%, gray 50%, black); */
+    margin: 20px;
+    overflow: hidden;
     font-family: cursive;
 }
-*{
-/*     box-sizing: border-box; */
+
+* {
+    /*     box-sizing: border-box; */
 }
-#box{
+
+#box {
     height: -webkit-fill-available;
-    border-radius: 3em; position: relative; cursor: crosshair;
+    border-radius: 3em;
+    position: relative;
+    cursor: crosshair;
 }
-.human div, .bullet{
-    position: relative; background: red; border: 1px solid #ffffffa6;
+
+.human div,
+.bullet {
+    position: relative;
+    background: red;
+    border: 1px solid #ffffffa6;
     box-shadow: 10px 10px 10px -2px;
 }
-.human, .bullet, #phony, form, #info{
+
+.human,
+.bullet,
+#phony,
+form,
+#info {
     position: absolute;
 }
-#hud{
-     font-size: 1.5em
+
+#hud {
+    font-size: 1.5em
 }
-#you::before{
+
+#you::before {
     content: "Player life: "
 }
-#shot::before{
+
+#shot::before {
     content: ", Shot life: "
 }
-#player div{
+
+#player div {
     background: black;
 }
-.head{
-     width: 20px; height: 20px; left: 15px; border-radius: 3em;
-     transform: scaleX(.8)
+
+.head {
+    width: 20px;
+    height: 20px;
+    left: 15px;
+    border-radius: 3em;
+    transform: scaleX(.8)
 }
-.body{
-     width: 5px; height: 40px; left: 22.5px; z-index: 1;
+
+.body {
+    width: 5px;
+    height: 40px;
+    left: 22.5px;
+    z-index: 1;
 }
-.hands, .legs{
-    width: 50px; height: 5px; top: -30px; z-index: 0;
-    border-radius: 2em; transform: rotate(0deg) skewX(10deg)
+
+.hands,
+.legs {
+    width: 50px;
+    height: 5px;
+    top: -30px;
+    z-index: 0;
+    border-radius: 2em;
+    transform: rotate(0deg) skewX(10deg)
 }
-.legs{
-    top: -10px; z-index: 2
+
+.legs {
+    top: -10px;
+    z-index: 2
 }
-form, #info{
-    border: 2px solid ghostwhite; width: 150px; text-align: center;
-    border-radius: 1em; background: gray;
-    top: calc(50% - 75px); left: calc(50% - 75px); box-shadow: 15px 15px 15px #2d2c2c;
+
+form,
+#info {
+    border: 2px solid ghostwhite;
+    width: 150px;
+    text-align: center;
+    border-radius: 1em;
+    background: gray;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+    box-shadow: 15px 15px 15px #2d2c2c;
     transition: opacity 1s;
 }
-form *{
-    border-radius: inherit; text-align: center;
+
+form * {
+    border-radius: inherit;
+    text-align: center;
     height: 50px;
 }
-[type=submit]{
+
+[type=submit] {
     width: -webkit-fill-available;
 }
-#restart, #info{
+
+#restart,
+#info {
     opacity: 0;
 }
-.bullet{
-    background: black; border-radius: 22em;
+
+.bullet {
+    background: black;
+    border-radius: 22em;
 }
-#info{
-    width: 100px; background: #f8f8ff61;
-    padding: 10px; top: 0; border: none;
+
+#info {
+    width: 100px;
+    background: #f8f8ff61;
+    padding: 10px;
+    top: 0;
+    border: none;
 }
-#phony{
-    top: calc(80% - 120px); left: calc(70%); display: none;
+
+#phony {
+    top: calc(80% - 120px);
+    left: calc(70%);
+    display: none;
 }
-#phony div{
-    width: 50px; height: 50px; background: #ffffffc9;
-    border: 5px solid gray; text-align: center;
-    font-size: 50px; padding: 10px;
-    position: relative; border-radius: 20px;
+
+#phony div {
+    width: 50px;
+    height: 50px;
+    background: #ffffffc9;
+    border: 5px solid gray;
+    text-align: center;
+    font-size: 50px;
+    padding: 10px;
+    position: relative;
+    border-radius: 20px;
 }
-#r{left: 75px}
-#l{left: -75px; top: -160px}
+
+#r {
+    left: 75px
+}
+
+#l {
+    left: -75px;
+    top: -160px
+}

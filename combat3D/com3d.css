@@ -1,233 +1,307 @@
-body{
+body {
     background: linear-gradient(white, white, silver, white, white);
-     overflow: hidden;
-    #f4a460a3;
-    display: flex; align-items: center;
+    overflow: hidden;
+    /* #f4a460a3; */
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
-*{
+
+* {
     position: relative;
     transform-style: preserve-3d;
     transform-origin: center;
     box-sizing: border-box;
 }
-div{
-/*     transition-duration: .5s; */
+
+div {
+    /*     transition-duration: .5s; */
     width: fit-content;
 }
-#gameFrame{
-/*     background: linear-gradient(white, white, silver, white, white); */
+
+#gameFrame {
+    /*     background: linear-gradient(white, white, silver, white, white); */
     overflow: hidden;
     box-sizing: content-box;
-    width: 600px; height: 600px;
-     border: 30px solid;
-     display: flex;
-     align-items: center;
-     justify-content: center
+    width: 600px;
+    height: 600px;
+    border: 30px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
-#gameBox{
-     box-sizing:content-box;
-     position: absolute;
-     transform: scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(0px);
-}
-.top{box-shadow: 0 0 2px 0 black}
-/* blocks */
-.block div{border: 1px solid black;position: absolute;border-radius: 0px;}
-.block{
+
+#gameBox {
+    box-sizing: content-box;
     position: absolute;
-    top: 0; left: 0;
+    transform: scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(0px);
+}
+
+.top {
+    box-shadow: 0 0 2px 0 black
+}
+
+/* blocks */
+.block div {
+    border: 1px solid black;
+    position: absolute;
+    border-radius: 0px;
+}
+
+.block {
+    position: absolute;
+    top: 0;
+    left: 0;
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     transform-origin: center;
-    width: 60px; height: 60px;
+    width: 60px;
+    height: 60px;
 }
+
 /*block sides*/
-.short{
+.short {
     --z: 30px;
 }
-.long{
+
+.long {
     --z: 60px
 }
-.block .side{
+
+.block .side {
     width: 60px;
     height: 60px;
     background: #000000;
     transform-origin: center;
     z-index: 33;
-/*         filter: invert(.1); */
+    /*         filter: invert(.1); */
     box-shadow: inset 0 0 4px 0px black;
 }
-.block .left, .block .right{
+
+.block .left,
+.block .right {
     width: calc(2 * var(--z));
 }
-.block .front, .block .back{
+
+.block .front,
+.block .back {
     height: calc(2 * var(--z));
 }
-.block{
+
+.block {
     --color: green;
 }
-.block .top{
+
+.block .top {
     transform: translateZ(calc(2 * var(--z)));
     background: #ff0000bb;
     /*     background: url('../../images/0.png'); */
     background: radial-gradient(white, white 35%, var(--color) 35%);
 }
-.block.long .top{
-/*     transform: translateZ(135px) */
-}
-.block.long .top{
+
+/* .block.long .top {
+        transform: translateZ(135px)
+} */
+
+.block.long .top {
     background: radial-gradient(white, white 35%, #bb0909 35%);
 }
-.block .bottom{
+
+.block .bottom {
     background: #ffa500bb;
     background: radial-gradient(white, white 35%, gray 35%);
 
 }
-.block .left{
+
+.block .left {
     transform: rotateY(-90deg) translateX(var(--z)) translateZ(var(--z));
     background: #ffff00bb;
-    background: radial-gradient(white, white 35%, #BDBDBD 35%);#BDBDBD
+    background: radial-gradient(white, white 35%, #BDBDBD 35%);
+    /* #BDBDBD */
 }
-.block .right{
+
+.block .right {
     transform: rotateY(90deg) translateX(-30px) translateZ(30px);
     background: #008000bb;
     background: radial-gradient(white, white 35%, #BDBDBD 35%);
 }
-.block.long .right{
+
+.block.long .right {
     transform: rotateY(90deg) translateX(-60px) translateZ(0px);
 }
-.block .back{
+
+.block .back {
     transform: rotateX(-90deg) translateZ(var(--z)) translateY(calc(-1 * var(--z)));
     background: #0000ffbb;
     background: radial-gradient(white, white 35%, #E0E0E0 35%);
 }
-.block.long .back{
+
+.block.long .back {
     transform: rotateX(90deg) translateZ(0px) translateY(60px);
 }
-.block .front{
+
+.block .front {
     transform: rotateX(-90deg) translateY(calc(-1 * var(--z))) translateZ(calc(-1 * var(--z)));
     background: #4b0082bb;
     background: radial-gradient(white, white 35%, #E0E0E0 35%);
 }
+
 /*Playable styles*/
-.Player{
+.Player {
     --color: gold;
 }
-.Enemy{
+
+.Enemy {
     --color: red;
 }
-.Friend{
+
+.Friend {
     --color: blue
 }
-.playable{
+
+.playable {
     position: absolute;
-    transform: translateZ(60px) translateX(0px) translateY(0px)
-     rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    width: 50px; height: 50px; top: 0px; left: 0px;
+    transform: translateZ(60px) translateX(0px) translateY(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    width: 50px;
+    height: 50px;
+    top: 0px;
+    left: 0px;
     -webkit-transform-origin-x: center;
     -webkit-transform-origin-y: center;
     text-align: center;
 }
-.playable>.part{
+
+.playable>.part {
     position: absolute;
 }
-.playable>.part>.side{
-    width: 50px; height: 50px;
+
+.playable>.part>.side {
+    width: 50px;
+    height: 50px;
     background: #ff0000b3;
     border: 1px solid black;
     position: absolute;
 }
-.playable>.body>.side{
-    width: 35px; height: 35px;
+
+.playable>.body>.side {
+    width: 35px;
+    height: 35px;
     --t: 17.5px;
 }
-.playable>.body>.top{
+
+.playable>.body>.top {
     padding-top: 7px;
     font-weight: bold;
 }
-.playable>.body{
+
+.playable>.body {
     transform: translateX(7.5px) translateY(7.5px) translateZ(50px)
 }
-.playable>.legs>.side{
+
+.playable>.legs>.side {
     --t: 25px;
     border-radius: 5px;
 }
-.legss, .bjody, .life{
+
+.legss,
+.bjody,
+.life {
     display: none;
 }
-.playable>.part>.bottom{
+
+.playable>.part>.bottom {
     background: orange;
 }
-.playable>.part>.top{
+
+.playable>.part>.top {
     transform: translateZ(calc(2*var(--t)));
     background: var(--color);
     border-radius: 5px;
 }
-.playable>.part>.left{
+
+.playable>.part>.left {
     transform: rotateY(-90deg) translateX(var(--t)) translateZ(var(--t));
     background: yellow;
 }
-.playable>.part>.right{
+
+.playable>.part>.right {
     transform: rotateY(90deg) translateX(calc(var(--t) / -1)) translateZ(var(--t));
     background: green;
 }
-.playable>.part>.front{
+
+.playable>.part>.front {
     transform: rotateX(90deg) translateY(var(--t)) translateZ(var(--t));
     background: blue
 }
-.playable>.part>.back{
+
+.playable>.part>.back {
     background: purple;
     transform: rotateX(-90deg) translateY(calc(var(--t) / -1)) translateZ(var(--t));
 }
-.playable>.gun>.side{
-    width: 15px; height: 35px;
+
+.playable>.gun>.side {
+    width: 15px;
+    height: 35px;
     border-radius: 1em 1em 0em 0em
 }
-.playable>.gun{
+
+.playable>.gun {
     transform: translateX(17.5px) translateY(-20px) translateZ(60px) rotateX(0deg) rotateY(0deg);
 }
-.gun>.front, .gun>.back{
+
+.gun>.front,
+.gun>.back {
     display: none;
 }
-.playable>.gun>.top{
+
+.playable>.gun>.top {
     transform: translateZ(15px);
 }
-.playable>.gun>.right{
+
+.playable>.gun>.right {
     transform: rotateY(90deg) translateX(-7.5px) translateZ(7.5px);
 }
-.playable>.gun>.left{
+
+.playable>.gun>.left {
     transform: rotateY(-90deg) translateX(7.5px) translateZ(7.5px)
 }
+
 /*Bulletins*/
-.Bullet{
+.Bullet {
     position: absolute;
     transform: translateZ(60px);
     filter: drop-shadow(2px 20px 2px var(--color));
 }
-.Bullet.P{
+
+.Bullet.P {
     --color: gold;
 }
-.Bullet.E{
+
+.Bullet.E {
     --color: red;
 }
-.Bullet.F{
+
+.Bullet.F {
     --color: blue;
 }
-.Bullet>.top{
+
+.Bullet>.top {
     width: 15px;
     height: 20px;
     border-radius: 1em 1em 0 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
     border: 2.5px solid black;
     box-shadow: 0 0 2px 2px white;
     background: var(--color);
 }
-.Bullet>.top:after{
+
+.Bullet>.top:after {
     content: '';
     width: 11px;
     height: 15px;
     background: var(--color);
     position: absolute;
-    top: 13px; left: -.5px;
+    top: 13px;
+    left: -.5px;
     box-sizing: border-box;
     border-left: 2.5px solid;
     border-right: 2.5px solid;

@@ -1,4 +1,4 @@
-body{
+body {
     background: #ff00006e;
     transition-duration: .5s;
     display: flex;
@@ -6,97 +6,139 @@ body{
     align-items: center;
     overflow: hidden;
 }
-*{
-/*     transform-style: preserve-3d; */
+
+/* * {
+        transform-style: preserve-3d;
+} */
+
+tr {
+    transition-duration: .5s;
 }
-tr{
-    transition-duration: .5s;}
-#container{
-    width: 80vw; height: 90vh;
+
+#container {
+    width: 80vw;
+    height: 90vh;
     background: darkslategray;
-/*     box-sizing: border-box; */
+    /*     box-sizing: border-box; */
     border: 3px solid #182828;
     width: fit-content;
-     padding: 2vh 2vw;
-    border-right-width: 15vw; border-left-width: 16vw;
+    padding: 2vh 2vw;
+    border-right-width: 15vw;
+    border-left-width: 16vw;
     border-radius: 15vw;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-     flex-flow: column;
+    flex-flow: column;
     cursor: move;
-/*     position: absolute; top: calc(50% - 45vw);
+    /*     position: absolute; top: calc(50% - 45vw);
     left: calc(50% - 40vw);
     z-index: 20; */
 }
-#container>button{
-    width: 8vh; height: 8vh;
+
+#container>button {
+    width: 8vh;
+    height: 8vh;
     position: absolute;
-    top: 40vh; margin: 1vw 1vh;
-    left: 13vw; background: #2f4f4f;
+    top: 40vh;
+    margin: 1vw 1vh;
+    left: 13vw;
+    background: #2f4f4f;
     text-transform: uppercase;
     font-family: fantasy;
-    font-size: 1em; font-weight: bold;
-    border-radius: 1em; cursor: pointer;
-/*     position: absolute; top: 0; display: none; */
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 1em;
+    cursor: pointer;
+    /*     position: absolute; top: 0; display: none; */
 }
-button:active, button:focus{
+
+button:active,
+button:focus {
     outline: none
 }
-#container>#pause{
+
+#container>#pause {
     left: 78.6vw;
 }
-#board{
+
+#board {
     display: flex;
-     padding: 0; margin: 0vw 3vw;
-     border-collapse: collapse;
-     width: fit-content;
-     align-items: center; justify-content: center;
-     transition-duration: .5s;
+    padding: 0;
+    margin: 0vw 3vw;
+    border-collapse: collapse;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    transition-duration: .5s;
     transform: rotate(90deg) rotateX(180deg);
 }
-#board tr{border: 1px solid black; box-sizing: border-box}
-#board td{
-    border: 1px solid black; margin: 0;
-    width: 6.5vh; height: 6.5vh;
-    box-sizing: border-box;
-    display: inline-flex; justify-content: center;
-    align-items: center; 
+
+#board tr {
+    border: 1px solid black;
+    box-sizing: border-box
 }
-#board td>div{
+
+#board td {
+    border: 1px solid black;
+    margin: 0;
+    width: 6.5vh;
+    height: 6.5vh;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#board td>div {
     width: 5.9vh;
     height: 5.9vh;
     background: #182828;
-    border-radius: 5vh; border: 2px solid;
-    box-sizing: border-box; cursor: cell
+    border-radius: 5vh;
+    border: 2px solid;
+    box-sizing: border-box;
+    cursor: cell
 }
-.first{
+
+.first {
     --ground: red;
 }
-.second{
+
+.second {
     --ground: blue;
 }
-#container>.seed{
-    width: 5.9vh; height: 5.9vh;
-    background: var(--ground); border-radius: 5vh;
+
+#container>.seed {
+    width: 5.9vh;
+    height: 5.9vh;
+    background: var(--ground);
+    border-radius: 5vh;
     box-sizing: border-box;
     border: 2px solid;
     transform: translate(0vh, 3vh);
     position: relative;
 }
-#board tr:first-child>td{
-/*     background: black; */
-}#board td>div.seed{
+
+/* #board tr:first-child>td {
+        background: black;
+} */
+
+#board td>div.seed {
     background: var(--ground)
 }
+
 /* //marker */
-svg, path{
+svg,
+path {
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
 }
-path{
-}
+
+/* path {} */
+
 /* pa */
-svg{
-    width: 100%; height: 100%;
+svg {
+    width: 100%;
+    height: 100%;
 }
