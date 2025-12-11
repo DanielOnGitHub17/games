@@ -6,7 +6,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
 
 h1 {
@@ -55,7 +56,8 @@ nav ul li a:hover {
 
 /* Fix for game layout sections to avoid overflow issues */
 .game-container {
-    overflow: visible !important; /* Ensure no clipping occurs in games */
+    overflow: visible !important;
+    /* Ensure no clipping occurs in games */
     position: relative;
 }
 
