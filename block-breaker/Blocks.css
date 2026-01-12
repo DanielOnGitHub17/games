@@ -1,4 +1,4 @@
-.block{
+.block {
     width: 15px;
     height: 15px;
     border: 5px outset;
@@ -11,78 +11,104 @@
     cursor: help;
     transition-duration: .5s
 }
-.block:before{
-    content: var(--msg); color: #0d63ad;
+
+.block:before {
+    content: var(--msg);
+    color: #0d63ad;
     width: fit-content;
     position: absolute;
-    top: -30; left: 0;
+    top: -30;
+    left: 0;
 }
-.block:after{
-    content: ''; display: block;
-    width: 50%; height: 50%;
+
+.block:after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 50%;
     position: relative;
     background: white;
-    top: 25%; left: 25%;
+    top: 25%;
+    left: 25%;
 }
-.space{
+
+.space {
     background: transparent;
     border: none;
 }
-.space:hover{
+
+.space:hover {
     --msg: 'Empty Space';
 }
-.pink{
-/*     background: linear-gradient(gray, deeppink 10%, white, white , deeppink 90%, gray 100%); */
+
+.pink {
+    /*     background: linear-gradient(gray, deeppink 10%, white, white , deeppink 90%, gray 100%); */
     background: deeppink;
     border-color: deeppink;
 }
-.pink:hover{
+
+.pink:hover {
     --msg: 'Pink block: Hit once to break'
 }
-.green{
-/*     background: linear-gradient(green, yellow 70%,white, white 95%, green 100%); */
+
+.green {
+    /*     background: linear-gradient(green, yellow 70%,white, white 95%, green 100%); */
     background: green;
     border-color: green;
 }
-.green:hover{
+
+.green:hover {
     --msg: 'Green block: Hit twice to break'
 }
-.metal{
-/*     background: linear-gradient(gray,silver 40%, silver 60%, gray); */
+
+.metal {
+    /*     background: linear-gradient(gray,silver 40%, silver 60%, gray); */
     background: silver;
     border-color: #bfb4b4;
 }
-.metal:hover{
+
+.metal:hover {
     --msg: 'Metal block: Unbreakable'
 }
 
-.star{
+.star {
     background: url('images/star.png');
     background-size: contain;
     border: none;
 }
-.star:hover{
+
+.star:hover {
     --msg: 'Star: Feels nice'
 }
-.colorful{
+
+.colorful {
     background: repeating-linear-gradient(90deg,
-     red 10%, yellow 10%, yellow 20%, green 20%,
-     green 30%, blue 30%, purple 30%, purple 40%,
-     brown 40%, brown 50%);
+            red 10%, yellow 10%, yellow 20%, green 20%,
+            green 30%, blue 30%, purple 30%, purple 40%,
+            brown 40%, brown 50%);
     border: 1px solid gray
 }
-.colorful.block:hover{
+
+.colorful.block:hover {
     --msg: 'Just for decorations, Unbreakable';
 }
-.powerup{
-    background: gold; border-color: orange;
+
+.powerup {
+    background: gold;
+    border-color: orange;
 }
-.powerup:hover{
+
+.powerup:hover {
     --msg: "Power up: doesn't break for nothing"
 }
-.exploding{
+
+.exploding {
     background: red;
 }
-.star:after, .space:after, .metal:after, .colorful:after{
+
+.star:after,
+.space:after,
+.metal:after,
+.colorful:after {
     display: none;
 }
